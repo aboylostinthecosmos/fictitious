@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumar Shivam - Portfolio</title>
 
-  <!-- ✅ Offline-compatible Tailwind (precompiled CSS) -->
+  <!-- Tailwind CSS -->
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
@@ -16,15 +16,12 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #1e293b; /* dark gray background */
+      background-color: #1e293b;
       color: white;
       min-height: 100vh;
+      overflow-x: hidden;
     }
-
-    /* Small animation for hover links */
-    a:hover {
-      transition: color 0.2s ease-in-out;
-    }
+    a:hover { transition: color 0.2s ease-in-out; }
   </style>
 </head>
 
@@ -42,6 +39,7 @@
         <a href="projects.html" class="hover:text-indigo-400 transition">Projects</a>
         <a href="papers.html" class="hover:text-indigo-400 transition">Papers</a>
       </nav>
+
       <!-- Mobile menu button -->
       <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -63,6 +61,24 @@
       </nav>
     </div>
   </header>
+
+  <!-- Hero Section -->
+  <main class="flex-grow flex flex-col justify-center items-center text-center px-6 min-h-screen">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-indigo-400">Hi, I’m Kumar Shivam</h1>
+    <p class="text-lg md:text-2xl max-w-2xl text-gray-300">
+      A science student with a deep interest in Physics, Astronomy, and Coding.  
+      Exploring the universe through curiosity and computation.
+    </p>
+    <div class="mt-8 space-x-4">
+      <a href="projects.html" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold transition">View Projects</a>
+      <a href="about.html" class="px-6 py-3 border border-indigo-400 hover:bg-indigo-500 hover:text-white rounded-lg font-semibold transition">About Me</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-4 mt-auto">
+    <p class="text-gray-400 text-sm">© 2025 Kumar Shivam. All rights reserved.</p>
+  </footer>
 
   <!-- JS for mobile menu toggle -->
   <script>
