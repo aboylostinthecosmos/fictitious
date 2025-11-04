@@ -1,216 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - fictitious</title>
-    
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Custom styles for the page */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0c0a1d; /* Dark base color */
-            transition: background-color 0.3s linear; /* Smooth background color change */
-        }
-        
-        #fluid-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Kumar Shivam</title>
 
-        .glass-card {
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: white;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+
+    a:hover {
+      transition: color 0.2s ease-in-out;
+    }
+  </style>
 </head>
-<body class="text-white">
 
-    <!-- Fluid Background -->
-    <canvas id="fluid-background"></canvas>
+<body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
+  <!-- Header -->
+  <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-semibold text-white hover:text-indigo-400 transition duration-200">
+        Kumar Shivam
+      </a>
+      <nav class="hidden md:flex space-x-8 text-lg">
+        <a href="index.html" class="hover:text-indigo-400 transition">Home</a>
+        <a href="about.html" class="hover:text-indigo-400 transition">About</a>
+        <a href="blog.html" class="hover:text-indigo-400 transition">Blog</a>
+        <a href="projects.html" class="hover:text-indigo-400 transition">Projects</a>
+        <a href="papers.html" class="hover:text-indigo-400 transition">Papers</a>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
 
-    <!-- Header Section -->
-    <header class="glass-card fixed top-0 left-0 right-0 z-10 shadow-lg">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 text-white hover:text-cyan-300 transition-colors">
-                <img src="logo.png" alt="logo" class="h-10 w-10 rounded-full self-center">
-                <div>
-                    <span class="text-xl font-bold leading-tight">fictitious</span>
-                    <span class="block text-xs text-slate-300 leading-tight">a boy lost in the cosmos</span>
-                </div>
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Home</a>
-                <a href="about.html" class="text-slate-200 hover:text-cyan-300 transition-colors">About</a>
-                <a href="blog.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Blog</a>
-                <a href="projects.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Projects</a>
-            </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+      <nav class="px-4 pt-2 pb-4 space-y-2 text-center">
+        <a href="index.html" class="block hover:text-indigo-400">Home</a>
+        <a href="about.html" class="block hover:text-indigo-400">About</a>
+        <a href="blog.html" class="block hover:text-indigo-400">Blog</a>
+        <a href="projects.html" class="block hover:text-indigo-400">Projects</a>
+        <a href="papers.html" class="block hover:text-indigo-400">Papers</a>
+      </nav>
+    </div>
+  </header>
 
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </div>
+  <!-- Canvas Background -->
+  <canvas id="cosmicCanvas"></canvas>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="index.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Home</a>
-            <a href="about.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">About</a>
-            <a href="blog.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Blog</a>
-            <a href="projects.html" class="block py-2 px-4 text-sm text-slate-200 hover:bg-gray-700">Projects</a>
-        </div>
-    </header>
+  <!-- About Content -->
+  <main class="content flex flex-col justify-center items-center text-center px-6 py-32">
+    <h1 class="text-5xl font-semibold mb-6 text-indigo-400">About Me</h1>
+    <p class="max-w-2xl text-lg leading-relaxed text-gray-300 mb-8">
+      I’m <span class="text-white font-semibold">Kumar Shivam</span>, a multidisciplinary science student passionate about
+      <span class="text-indigo-400">astrophysics</span>, <span class="text-indigo-400">cosmology</span>, and <span class="text-indigo-400">computational physics</span>.
+      I explore the mysteries of the universe through scientific inquiry, data, and code — bridging physics, mathematics, and curiosity.
+    </p>
 
-    <!-- Main Content Area -->
-    <main class="pt-32 pb-16">
-        <div class="container mx-auto px-4">
-            <!-- About Me Card -->
-            <div class="glass-card w-full max-w-4xl mx-auto rounded-2xl shadow-2xl p-8 md:p-12">
-                
-                <!-- Intro -->
-                <div class="text-center border-b border-slate-700 pb-8">
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Hi, I’m Kumar Shivam</h1>
-                    <p class="text-lg text-slate-300">I’m a curious learner and a B.Sc. undergraduate, majoring in Physics, Mathematics, and Geography. My interests span across a wide intellectual landscape — from the fundamentals of cosmology and astrophysics, to the mysteries of human thought and consciousness. I love learning new things, asking questions, and building tools that help explore those questions.</p>
-                </div>
+    <div class="flex space-x-6 text-2xl">
+      <a href="https://github.com/ui-fictitious" target="_blank" class="hover:text-indigo-400">GitHub</a>
+      <a href="https://www.instagram.com/aboylostinthecosmos/" target="_blank" class="hover:text-indigo-400">Instagram</a>
+      <a href="https://www.linkedin.com/in/aboylostinthecosmos/" target="_blank" class="hover:text-indigo-400">LinkedIn</a>
+      <a href="mailto:kshivam4002@gmail.com" class="hover:text-indigo-400">Email</a>
+    </div>
+  </main>
 
-                <!-- Passions -->
-                <div class="py-8 border-b border-slate-700">
-                    <h2 class="text-2xl font-bold text-white text-center mb-6">What I’m Passionate About</h2>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-slate-300">
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            <span>Theoretical physics and cosmology</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                            <span>Python and LaTeX (for scientific applications)</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"></path></svg>
-                            <span>Data visualization and simulation</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1014.12 11.88"></path></svg>
-                            <span>Psychology and the mind</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span>Creative expression through photography and writing</span>
-                        </li>
-                    </ul>
-                </div>
+  <!-- JS for mobile menu -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 
-                <!-- About this site -->
-                <div class="py-8 border-b border-slate-700">
-                    <h2 class="text-2xl font-bold text-white text-center mb-4">About This Site</h2>
-                    <p class="text-slate-300 text-center max-w-2xl mx-auto">This site is a space where I document my journey through science, learning, and creative exploration. From blog entries to project updates and photography, it’s all a reflection of how I think and grow. Whether you’re here out of curiosity or collaboration — welcome.</p>
-                </div>
-                
-                <!-- Connect -->
-                <div class="py-8">
-                    <h2 class="text-2xl font-bold text-white text-center mb-6">Let's Connect</h2>
-                    <div class="flex justify-center items-center space-x-6">
-                        <!-- UPDATED ICONS FOR CONSISTENCY -->
-                        <a href="https://github.com/aboylostinthecosmos/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="GitHub">
-                           <svg class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
-                        </a>
-                        <a href="mailto:wwwks00000@gmail.com" class="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Email">
-                           <svg class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
-                        </a>
-                        <a href="https://www.instagram.com/aboylostinthecosmos/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Instagram">
-                             <svg class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="4" /><circle cx="12" cy="12" r="3" /><line x1="16.5" y1="7.5" x2="16.5" y2="7.501" /></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/aboylostinthecosmos" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="LinkedIn">
-                             <svg class="w-8 h-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2" /><line x1="8" y1="11" x2="8" y2="16" /><line x1="8" y1="8" x2="8" y2="8.01" /><line x1="12" y1="16" x2="12" y2="11" /><path d="M16 16v-3a2 2 0 0 0 -4 0" /></svg>
-                        </a>
-                    </div>
-                </div>
+  <!-- Cosmic Animation -->
+  <script>
+    const canvas = document.getElementById('cosmicCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-                <!-- Quote -->
-                <div class="pt-8 mt-8 border-t border-slate-700">
-                    <blockquote class="text-center text-slate-400 italic">“I don’t claim to know much — I only claim to stay curious.”</blockquote>
-                </div>
+    const particles = [];
+    const numParticles = 150;
 
-            </div>
-        </div>
-    </main>
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = Math.random() * 0.6 - 0.3;
+        this.speedY = Math.random() * 0.6 - 0.3;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
 
-    <script>
-        // --- Mobile Menu Toggle Script ---
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    function init() {
+      for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle());
+      }
+    }
 
-        // --- Fluid Background Script ---
-        const canvas = document.getElementById('fluid-background');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+    function animate() {
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.25)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
 
-        // Colors to transition between: from a dark purple to a brighter blue
-        const startColor = { r: 12, g: 10, b: 29 }; // #0c0a1d
-        const endColor = { r: 14, g: 116, b: 144 }; // #0e7490 (Tailwind's cyan-700)
-        let currentColor = { r: startColor.r, g: startColor.g, b: startColor.b };
-
-        function setCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = Math.random() * 30 + 20; this.speedX = (Math.random() - 0.5) * 0.5; this.speedY = (Math.random() - 0.5) * 0.5; }
-            update() { this.x += this.speedX; this.y += this.speedY; if (this.x > canvas.width + this.radius || this.x < -this.radius) { this.speedX *= -1; } if (this.y > canvas.height + this.radius || this.y < -this.radius) { this.speedY *= -1; } }
-            draw() { ctx.beginPath(); const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius); gradient.addColorStop(0, `rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, 0.5)`); gradient.addColorStop(1, `rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, 0)`); ctx.fillStyle = gradient; ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fill(); }
-        }
-
-        function initParticles() { particles = []; for (let i = 0; i < 25; i++) { particles.push(new Particle()); } }
-        function handleParticles() { for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); } }
-
-        function updateColor() {
-            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
-            const r = startColor.r + (endColor.r - startColor.r) * scrollPercent;
-            const g = startColor.g + (endColor.g - startColor.g) * scrollPercent;
-            const b = startColor.b + (endColor.b - startColor.b) * scrollPercent;
-            currentColor = { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
-            document.body.style.backgroundColor = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            handleParticles();
-            requestAnimationFrame(animate);
-        }
-        
-        window.addEventListener('scroll', updateColor);
-        window.addEventListener('resize', () => { setCanvasSize(); initParticles(); });
-        setCanvasSize();
-        initParticles();
-        animate();
-        updateColor();
-    </script>
+    init();
+    animate();
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
-
