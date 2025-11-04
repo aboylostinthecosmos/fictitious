@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumar Shivam - Portfolio</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (offline-compatible CDN) -->
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
@@ -16,16 +16,32 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #1e293b;
       color: white;
-      min-height: 100vh;
       overflow-x: hidden;
     }
-    a:hover { transition: color 0.2s ease-in-out; }
+
+    /* Star background animation */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      animation: starsMove 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes starsMove {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 10000px; }
+    }
   </style>
 </head>
 
-<body class="flex flex-col min-h-screen bg-gray-800 text-gray-100">
+<body class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
   <!-- Header -->
   <header class="bg-gray-900 bg-opacity-80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -39,8 +55,6 @@
         <a href="projects.html" class="hover:text-indigo-400 transition">Projects</a>
         <a href="papers.html" class="hover:text-indigo-400 transition">Papers</a>
       </nav>
-
-      <!-- Mobile menu button -->
       <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
@@ -63,24 +77,19 @@
   </header>
 
   <!-- Hero Section -->
-  <main class="flex-grow flex flex-col justify-center items-center text-center px-6 min-h-screen">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-indigo-400">Hi, I’m Kumar Shivam</h1>
-    <p class="text-lg md:text-2xl max-w-2xl text-gray-300">
-      A science student with a deep interest in Physics, Astronomy, and Coding.  
-      Exploring the universe through curiosity and computation.
+  <main class="flex flex-col justify-center items-center text-center min-h-screen px-6 pt-24">
+    <h1 class="text-5xl md:text-6xl font-bold text-indigo-400 mb-4">Welcome to My Cosmos</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+      I’m <span class="font-semibold text-white">Kumar Shivam</span> — 
+      a science student exploring the universe through physics, data, and code.
     </p>
-    <div class="mt-8 space-x-4">
+    <div class="space-x-4">
       <a href="projects.html" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold transition">View Projects</a>
       <a href="about.html" class="px-6 py-3 border border-indigo-400 hover:bg-indigo-500 hover:text-white rounded-lg font-semibold transition">About Me</a>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-center py-4 mt-auto">
-    <p class="text-gray-400 text-sm">© 2025 Kumar Shivam. All rights reserved.</p>
-  </footer>
-
-  <!-- JS for mobile menu toggle -->
+  <!-- JS for mobile menu -->
   <script>
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
