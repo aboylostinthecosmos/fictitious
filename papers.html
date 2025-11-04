@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papers & Articles - Kumar Shivam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-background {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+            z-index: -1;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="gradient-background"></div>
+
+    <!-- Header -->
+    <header class="glass-card fixed top-0 left-0 right-0 z-30 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 text-white hover:text-cyan-300 transition-colors">
+                <img src="logo.png" alt="logo" class="h-10 w-10 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/40x40/111827/FFFFFF?text=K';">
+                <div>
+                    <span class="text-xl font-bold leading-tight">Kumar Shivam</span>
+                    <span class="block text-xs text-slate-300 leading-tight">a boy lost in the cosmos</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Home</a>
+                <a href="about.html" class="text-slate-200 hover:text-cyan-300 transition-colors">About</a>
+                <a href="blog.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Blog</a>
+                <a href="papers.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Papers</a>
+                <a href="projects.html" class="text-slate-200 hover:text-cyan-300 transition-colors">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="pt-32 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 pr-20 md:pr-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-white">Research & Reviews</h1>
+                <p class="text-slate-300 mt-2">A collection of my scientific papers, reviews, and thought articles.</p>
+            </div>
+
+            <!-- Papers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <p class="text-sm text-cyan-400 mb-2">Astrophysics • October 2025</p>
+                        <h3 class="text-xl font-bold text-white mb-3">Dark Energy – The Unknown Driving Force of the Universe</h3>
+                        <p class="text-slate-300 text-sm">A detailed exploration of dark energy, its discovery, theoretical models, and the missions uncovering its mysteries.</p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="papers/dark-energy.pdf" target="_blank" class="font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">View Paper &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <p class="text-sm text-cyan-400 mb-2">Extragalactic Astronomy • January 2024</p>
+                        <h3 class="text-xl font-bold text-white mb-3">Quasars – The Brightest Mystery of Our Universe</h3>
+                        <p class="text-slate-300 text-sm">A comprehensive review paper exploring the enigma of quasars — their origins, structure, jet mechanisms, and their role in galaxy regulation and cosmic evolution.</p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="papers/quasar-final.pdf" target="_blank" class="font-semibold text-cyan-400 hover:text-cyan-200 transition-colors">View Paper &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-slate-400 py-6 border-t border-gray-700">
+        © 2025 Kumar Shivam — a boy lost in the cosmos
+    </footer>
+</body>
+</html>
