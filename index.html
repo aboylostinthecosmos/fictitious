@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kumar Shivam - Portfolio</title>
 
-  <!-- ✅ Tailwind must load without 'defer' -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- ✅ Offline-compatible Tailwind (precompiled CSS) -->
+  <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,11 @@
       background-color: #1e293b; /* dark gray background */
       color: white;
       min-height: 100vh;
+    }
+
+    /* Small animation for hover links */
+    a:hover {
+      transition: color 0.2s ease-in-out;
     }
   </style>
 </head>
@@ -59,7 +64,7 @@
     </div>
   </header>
 
-  <!-- Small JS for mobile toggle -->
+  <!-- JS for mobile menu toggle -->
   <script>
     const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
