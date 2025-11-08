@@ -103,6 +103,17 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #pdf-viewer.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    #pdf-viewer.hide {
+      opacity: 0;
     }
 
     #pdf-viewer iframe {
@@ -167,7 +178,7 @@
   <!-- PDF VIEWER -->
   <div id="pdf-viewer" class="flex">
     <span id="close-btn">&times;</span>
-    <iframe id="pdf-frame" src=""></iframe>
+    <iframe id="pdf-frame" src="" sandbox="allow-same-origin allow-scripts" allow="fullscreen"></iframe>
   </div>
 
   <!-- FOOTER -->
@@ -205,13 +216,20 @@
     }
 
     function openPDF(file) {
-      document.getElementById('pdf-frame').src = file;
-      document.getElementById('pdf-viewer').style.display = 'flex';
+      const pdfFrame = document.getElementById('pdf-frame');
+      pdfFrame.src = `https://docs.google.com/gview?embedded=true&url=${window.location.origin}/${file}`;
+      const viewer = document.getElementById('pdf-viewer');
+      viewer.style.display = 'flex';
+      requestAnimationFrame(() => viewer.classList.add('show'));
     }
 
     document.getElementById('close-btn').addEventListener('click', () => {
-      document.getElementById('pdf-viewer').style.display = 'none';
-      document.getElementById('pdf-frame').src = '';
+      const viewer = document.getElementById('pdf-viewer');
+      viewer.classList.remove('show');
+      setTimeout(() => {
+        viewer.style.display = 'none';
+        document.getElementById('pdf-frame').src = '';
+      }, 400);
     });
 
     loadPapers();
