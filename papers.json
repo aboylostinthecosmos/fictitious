@@ -1,0 +1,28 @@
+{
+  "articles": [
+    {
+      "category": "Philosophy of Physics",
+      "date": "November 2025",
+      "title": "TIME — A Stubborn Illusion?",
+      "description": "A conceptual and scientific exploration into the nature of time — from Aristotle’s paradoxes to modern relativity and quantum theory.",
+      "file": "TIME.pdf"
+    },
+    {
+      "category": "Astrophysics",
+      "date": "October 2025",
+      "title": "Dark Energy – The Unknown Driving Force of the Universe",
+      "description": "A detailed exploration of dark energy, its discovery, theoretical models, and the missions uncovering its mysteries.",
+      "file": "dark-energy.pdf"
+    }
+  ],
+  "research_papers": [
+    {
+      "category": "Extragalactic Astronomy",
+      "date": "January 2024",
+      "type": "Review Paper",
+      "title": "Quasars – The Brightest Mystery of Our Universe",
+      "description": "A comprehensive review exploring the enigma of quasars — their structure, jet mechanisms, and cosmic role.",
+      "file": "quasar-final.pdf"
+    }
+  ]
+}
